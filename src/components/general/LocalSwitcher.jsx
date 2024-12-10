@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { redirect } from "next/navigation";
 
 const items = [
   { value: "en", label: "Eng" },
@@ -29,7 +30,7 @@ function LocalSwitcher() {
   const handleLocaleChange = (value) => {
     setLocale(value);
     Cookies.set("locale", value, { expires: 7 }); 
-    window.location.reload(); 
+    redirect('/login')
   };
 
   return (
